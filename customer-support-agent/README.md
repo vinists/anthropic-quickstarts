@@ -18,7 +18,7 @@ An advanced, fully customizable customer support chat interface powered by Claud
 2. Install dependencies: `npm install`
 3. Set up your environment variables (see Configuration section)
 4. Run the development server: `npm run dev`
-5. Open [http://localhost:3000](http://localhost:3000) in your browser
+5. Open [http://192.168.1.18:3000](http://192.168.1.18:3000) in your browser
 
 ## ⚙️ Configuration
 

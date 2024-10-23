@@ -9,7 +9,7 @@ echo "starting vnc"
     -noxrecord \
     -noxfixes \
     -noxdamage \
-    -rfbport 5900 \
+    -rfbport 6004 \
     2>/tmp/x11vnc_stderr.log) &
 
 x11vnc_pid=$!
@@ -17,7 +17,7 @@ x11vnc_pid=$!
 # Wait for x11vnc to start
 timeout=10
 while [ $timeout -gt 0 ]; do
-    if netstat -tuln | grep -q ":5900 "; then
+    if netstat -tuln | grep -q ":6004 "; then
         break
     fi
     sleep 1

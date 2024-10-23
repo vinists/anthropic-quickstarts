@@ -49,7 +49,7 @@ ANTHROPIC_API_KEY=your_api_key_here
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://192.168.1.18:3000](http://192.168.1.18:3000) with your browser to see the result.
 
 ## Technology Stack
 

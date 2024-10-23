@@ -61,18 +61,18 @@ jobs:
               echo "Timeout reached. Container did not respond within $timeout seconds."
               exit 1
             fi
-            response=$(docker exec $docker_id curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:8501 || echo "000")
+            response=$(docker exec $docker_id curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:6002 || echo "000")
             if [ "$response" = "200" ]; then
               echo "Container responded with 200 OK"
               exit 0
             fi
           done
       - name: Check VNC
-        run: docker exec $docker_id nc localhost 5900 -z
+        run: docker exec $docker_id nc 192.168.1.18 6004 -z
       - name: Check noVNC
-        run: docker exec $docker_id curl -s -o /dev/null -w "%{http_code}" http://localhost:6080 | grep -q 200 || exit 1
+        run: docker exec $docker_id curl -s -o /dev/null -w "%{http_code}" http://192.168.1.18:6003 | grep -q 200 || exit 1
       - name: Check landing page
-        run: docker exec $docker_id curl -s -o /dev/null -w "%{http_code}" http://localhost:8080 | grep -q 200 || exit 1
+        run: docker exec $docker_id curl -s -o /dev/null -w "%{http_code}" http://192.168.1.18:6001 | grep -q 200 || exit 1
       - name: Determine push tags
         run: |
           if [ "${{ github.event_name }}" == "pull_request" ]; then
